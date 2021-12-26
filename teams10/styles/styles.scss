@@ -1,0 +1,474 @@
+@font-face {
+    font-family: 'Roboto Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v29-latin-regular.woff') format('woff')
+}
+@font-face {
+    font-family: 'Roboto Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/roboto-v29-latin-500.woff') format('woff')
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-v29-latin-700.woff') format('woff')
+}
+@font-face {
+    font-family: 'Leaks Sans Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/leksa-sans-pro-bold.woff') format('woff')
+}
+@import "fonts";
+@import "colors";
+@import "gradients";
+@mixin font ($ff,$fst,$fw,$fs,$lh) {
+    font: {
+        family: $ff;
+        style: $fst;
+        weight:$fw;
+        size: $fs;
+    }
+    line-height: $lh;
+}
+@mixin width ($md,$wd){
+    max-width: $md;
+    width: $wd;
+
+}
+@mixin pos-top ($ps,$tp,$lf) {
+    position: $ps;
+    top: $tp;
+    left: $lf;
+}
+@mixin pos-bottom ($ps,$bt,$lf) {
+    position: $ps;
+    bottom: $bt;
+    left: $lf;
+}
+@mixin grid ($ds,$gtc,$gtr) {
+    display: $ds;
+    grid: {
+        template-columns: $gtc;
+        template-rows: $gtr;
+    }
+}
+@mixin grid-pos ($gst,$ge) {
+    grid: {
+        column-start: $gst;
+        column-end: $ge;
+    }
+}
+@mixin grid-gap ($gcg,$grg) {
+    grid: {
+        column-gap: $gcg;
+        row-gap: $grg;
+    }
+}
+%text-gradient {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+}
+.wrapper {
+    @include width(1366px,100%);
+    margin: 0 auto;
+}
+.header {
+    background-color: $night-black;
+    background-image: url("../image/desktop/statistic/header__bg.svg"),$black-gradient;
+    background-repeat: no-repeat,no-repeat;
+    background-size: 1366px auto,1366px auto;
+    @include width(1366px,100%);
+}
+.statistic {
+    padding-top: 16px;
+    padding-bottom: 10px;
+    @include width(1286px,100%);
+    margin: 0 auto;
+    @include grid(grid,10% 24% 17% 14% 24% 11%,1fr);
+}
+.statistic-mobile {
+    display: none;
+}
+.statistic__button-header {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    background-image: url("../image/desktop/statistic/statistic__button-back-bg.svg");
+    background-repeat: no-repeat;
+    background-size: 139px auto;
+    background-color: transparent;
+    @include width(139px,100%);
+    min-height: 54px;
+    box-sizing: border-box;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    padding-left: 73px;
+    position: relative;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: $white;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+.statistic__button-back::before {
+    content: url("../image/desktop/statistic/statistic__button-back-image.svg");
+    @include pos-top(absolute,3px,20px);
+}
+.precious-statistic__block {
+    @include width(179px,100%);
+    background: $not-black;
+    border-radius: 100px;
+    padding-left: 61px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    opacity: 1;
+
+}
+.coins-statistic {
+    @include grid-pos(3,4);
+}
+.coins-statistic::before {
+    content: url("../image/desktop/statistic/coins-statistic__image.svg");
+    @include pos-top(absolute,0,-10px);
+
+}
+.coins-statistic__box {
+    @include width(55px,100%);
+    text-align: left;
+    box-sizing: border-box;
+}
+.coins-statistic__text {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    color: $white;
+    margin: 0;
+}
+.coins-statistic__title {
+    @include font($RobotoMedium,normal,500,10px,12px);
+    color: $not-white;
+    margin: 0;
+}
+.crystals-statistic::before {
+    content: url("../image/desktop/statistic/crystals-statistic__image.svg");
+    @include pos-top(absolute,-5px,-10px);
+}
+.crystals-statistic__box {
+    @include width(35px,100%);
+    text-align: left;
+    box-sizing: border-box;
+}
+.crystals-statistic__text {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    color: $white;
+    margin: 0;
+}
+.crystals-statistic__title {
+    @include font($RobotoMedium,normal,500,10px,12px);
+    color: $not-white;
+    margin: 0;
+}
+.statistic__button-home {
+    background-image: url("../image/desktop/statistic/statistic__button-home-bg.svg");
+    @include grid-pos(6,7);
+
+
+}
+.statistic__button-home::before {
+    content: url("../image/desktop/statistic/statistic__button-home.svg");
+    @include pos-top(absolute,5px,30px);
+}
+.main {
+    background-color: $night-black;
+    background-image: url("../image/desktop/shop/main__bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 1366px auto;
+    padding-top: 10px;
+    padding-bottom: 85px;
+    position: relative;
+}
+.shop {
+    @include width(980px,100%);
+    margin: 0 auto;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+}
+.shop-mobile {
+    display: none;
+}
+.main::before {
+    content: "";
+    display: block;
+    @include width(1366px,100%);
+    min-height: 377px;
+    background-image: $main-before;
+    @include pos-top(absolute,301px,0);
+}
+.menu-shop {
+    @include width(980px,100%);
+}
+.menu-shop__list {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    @include grid(grid,repeat(auto-fill,minmax(188px,1fr)),1fr);
+    @include grid-gap(10px,0);
+}
+.menu-shop__item {
+    list-style-type: none;
+    background-color: $night-blue;
+    border-radius: 10px 10px 0 0;
+    @include width(188px,100%);
+    min-height: 54px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menu-shop__link {
+    @include font($LeaksSansBold,normal,700,20px,25px);
+    text-decoration: none;
+    color: $soft;
+    opacity: 0.5;
+}
+.menu-shop__item_active {
+    background: #323145;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+.menu-shop__link_active {
+    opacity: 1;
+    color: $white;
+}
+.menu-shop__item_active::before {
+    content: "";
+    display: block;
+    @include width(148px,100%);
+    height: 3px;
+    background-image: $active-gradient;
+    @include pos-bottom(absolute,0,20px);
+}
+.menu-shop__item_active::after {
+    content: "";
+    display: block;
+    @include width(188px,100%);
+    height: 3px;
+    background-image: $active-gradient;
+    @include pos-bottom(absolute,0,0);
+    opacity: 0.2;
+}
+.content-shop__block {
+    @include grid(grid,repeat(auto-fill,minmax(217px,1fr)),1fr);
+    @include grid-gap(20px,20px);
+    @include width(928px,100%);
+    margin: 0 auto;
+}
+.content-shop {
+    background-color: $alt;
+    padding-top: 24px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+}
+.content-shop-crystals__block {
+    @include width(980px,100%);
+    margin-bottom: 60px;
+    position: relative;
+}
+.content-shop-crystals__block::before {
+    content: "";
+    display: block;
+    @include width(980px,100%);
+    height: 2px;
+    opacity: 0.1;
+    background-color: $soft;
+    @include pos-bottom(absolute,-30px,0);
+
+}
+.content-shop__title {
+    @include font($LeaksSansBold,normal,700,30px,37px);
+    color: $white;
+    text-align: center;
+    margin: 0 0 24px;
+}
+.content-shop-box {
+    box-sizing: border-box;
+    @include width(217px,100%);
+    background-color: $alt;
+    background-image: url("../image/desktop/shop/content-shop-box__bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 217px auto;
+    padding-top: 140px;
+    min-height: 299px;
+    border-radius: 24px 21px 18px 18px;
+    position: relative;
+    overflow: hidden;
+}
+.content-shop-box__title {
+    @include font($RobotoRegular,normal,400,14px,22px);
+    text-align: center;
+    color: $white;
+    margin: 0 auto 15px auto;
+    @include width(105px,100%);
+
+}
+.content-shop-box__span {
+    @include font($LeaksSansBold,normal,700,30px,40px);
+    text-align: center;
+}
+.content-shop-box__button {
+    @include font($LeaksSansBold,normal,700,14px,16px);
+    @include width(155px,100%);
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    color: $white;
+    border: none;
+    background-image: url("../image/desktop/shop/content-shop-box__button-bg.svg"),$button-gradient;
+    background-repeat: no-repeat,no-repeat;
+    background-size: 155px auto,155px auto;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 146px;
+    cursor: pointer;
+}
+.content-shop-box__span-button {
+    @include font($RobotoBold,normal,500,14px,16px);
+    color: $white;
+    position: relative;
+}
+.content-shop-box__span-button::before {
+    content: url("../image/desktop/shop/content-shop-box__image-money.svg");
+    @include pos-top(absolute,0,-15px);
+}
+.content-shop-box-one-crystal::before {
+    content: url("../image/desktop/shop/content-shop-box-one-crystal__image.svg");
+    @include pos-top(absolute,37px,30px);
+}
+.content-shop-box-small-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-small-crystal__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-middle-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-middle-crystal__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-many-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-many-crystal__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-handbag-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-handbag-crystals__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-box-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-box-crystals__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-bag-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-bag-crystals__image.svg");
+    @include pos-top(absolute,15px,50px);
+
+}
+.content-shop-box-chest-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-chest-crystals__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-many-chest-crystals::before {
+    content: url("../image/desktop/shop/content-shop-box-many-chest-crystals__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+
+.content-shop-box-bonus {
+    @include width(96px,100%);
+    box-sizing: border-box;
+    min-height: 22px;
+    background-image: $orange-gradient;
+    text-align: center;
+    @include pos-top(absolute,14px,-19px);
+    transform: rotate(-42.41deg);
+    padding-left: 10px;
+}
+.content-shop-box-bonus__text {
+    @include font($RobotoBold,normal,700,13px,20px);
+    margin: 0;
+    text-align: center;
+    color: $white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+.content-shop-box-bonus::before {
+    content: url("../image/desktop/shop/content-shop-box-bonus__image.svg");
+    @include pos-top(absolute,-2px,15px);
+}
+.content-shop-nether-coin__block {
+    max-width: 980px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+.content-shop-box-one-nether-coin::before {
+    content: url("../image/desktop/shop/content-shop-box-one-nether-coin__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-many-nether-coins::before {
+    content: url("../image/desktop/shop/content-shop-box-many-nether-coins__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-handbag-nether-coins::before {
+    content: url("../image/desktop/shop/content-shop-box-handbag-nether-coins__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-bag-nether-coins::before {
+    content: url("../image/desktop/shop/content-shop-box-bag-nether-coins__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-box-nether-coins::before {
+    content: url("../image/desktop/shop/content-shop-box-box-nether-coins__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-chest-nether-coins::before {
+    content: url("../image/desktop/shop/content-shop-box-chest-nether-coins__image.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-nether-coin__span-button::before {
+    content: url("../image/desktop/shop/content-shop-nether-coin__image-crystals.svg");
+    @include pos-top(absolute,-6px,-30px);
+}
+
+.menu-shop__item:hover {
+    background-color: transparent;
+}
+.menu-shop__item:hover .menu-shop__link {
+    @extend %text-gradient;
+    opacity: 1;
+}
+.content-shop__title:hover {
+    @extend %text-gradient;
+    transform: scale(1.3);
+}
+.content-shop-box:hover {
+    border: 5px solid darkmagenta;
+    transform: scale(0.97);
+    will-change: scale;
+}
+.content-shop-box:hover .content-shop-box__title {
+    @extend %text-gradient;
+}
+.content-shop-box:hover .content-shop-box-bonus__text {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(228.57deg, #323264 65.93%, #323264 57.17%, #643E72 87.46%);
+}
+.content-shop-box:hover  .content-shop-box__button {
+    transform: scale(1.2);
+    will-change: scale;
+}
+

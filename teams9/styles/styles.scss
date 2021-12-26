@@ -1,0 +1,665 @@
+@font-face {
+    font-family: 'Roboto Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v29-latin-regular.woff') format('woff')
+}
+@font-face {
+    font-family: 'Roboto Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/roboto-v29-latin-500.woff') format('woff')
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-v29-latin-700.woff') format('woff')
+}
+@font-face {
+    font-family: 'Leaks Sans Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/leksa-sans-pro-bold.woff') format('woff')
+}
+@import "fonts";
+@import "colors";
+@import "gradients";
+@mixin font ($ff,$fst,$fw,$fs,$lh) {
+    font: {
+        family: $ff;
+        style: $fst;
+        weight:$fw;
+        size: $fs;
+    }
+    line-height: $lh;
+}
+@mixin width ($md,$wd){
+    max-width: $md;
+    width: $wd;
+
+}
+@mixin pos-top ($ps,$tp,$lf) {
+    position: $ps;
+    top: $tp;
+    left: $lf;
+}
+@mixin pos-bottom ($ps,$bt,$lf) {
+    position: $ps;
+    bottom: $bt;
+    left: $lf;
+}
+@mixin grid ($ds,$gtc,$gtr) {
+    display: $ds;
+    grid: {
+        template-columns: $gtc;
+        template-rows: $gtr;
+    }
+}
+@mixin grid-pos ($gst,$ge) {
+    grid: {
+        column-start: $gst;
+        column-end: $ge;
+    }
+}
+@mixin grid-gap ($gcg,$grg) {
+    grid: {
+        column-gap: $gcg;
+        row-gap: $grg;
+    }
+}
+%text-gradient {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+}
+
+.wrapper {
+    @include width(1366px,100%);
+    margin: 0 auto;
+}
+.header {
+    background-color: $night-black;
+    background-image: url("../image/desktop/statistic/header__bg.svg"),$black-gradient;
+    background-repeat: no-repeat,no-repeat;
+    background-size: 1366px auto,1366px auto;
+    @include width(1366px,100%);
+}
+.statistic {
+    padding-top: 16px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    @include grid(grid,10% 24% 17% 14% 24% 11%,1fr);
+    @include width(1286px,100%);
+}
+.statistic-mobile {
+    display: none;
+}
+.statistic__button-header {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    background-image: url("../image/desktop/statistic/statistic__button-back-bg.svg");
+    background-repeat: no-repeat;
+    background-size: 139px auto;
+    background-color: transparent;
+    min-height: 54px;
+    box-sizing: border-box;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    padding-left: 73px;
+    position: relative;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: $white;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    @include width(139px,100%);
+}
+.statistic__button-back::before {
+    content: url("../image/desktop/statistic/statistic__button-back-image.svg");
+    @include pos-top(absolute,3px,20px);
+}
+
+.precious-statistic__block {
+    @include width(179px,100%);
+    background: $not-black;
+    border-radius: 100px;
+    padding-left: 61px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    opacity: 1;
+}
+.coins-statistic {
+    @include grid-pos(3,4);
+}
+.coins-statistic::before {
+    content: url("../image/desktop/statistic/coins-statistic__image.svg");
+    @include pos-top(absolute,0,-10px);
+
+}
+.coins-statistic__box {
+    @include width(55px,100%);
+    text-align: left;
+    box-sizing: border-box;
+}
+.coins-statistic__text {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    color: $white;
+    margin: 0;
+}
+.coins-statistic__title {
+    @include font($RobotoMedium,normal,500,10px,12px);
+    color: $not-white;
+    margin: 0;
+}
+.crystals-statistic::before {
+    content: url("../image/desktop/statistic/crystals-statistic__image.svg");
+    @include pos-top(absolute,-5px,-10px);
+
+}
+.crystals-statistic__box {
+    @include width(35px,100%);
+    text-align: left;
+    box-sizing: border-box;
+}
+.crystals-statistic__text {
+    @include font($LeaksSansBold,normal,700,18px,22px);
+    color: $white;
+    margin: 0;
+}
+.crystals-statistic__title {
+    @include font($RobotoMedium,normal,500,10px,12px);
+    color: $not-white;
+    margin: 0;
+}
+.statistic__button-home {
+    background-image: url("../image/desktop/statistic/statistic__button-home-bg.svg");
+    @include grid-pos(6,7);
+
+}
+.statistic__button-home::before {
+    content: url("../image/desktop/statistic/statistic__button-home.svg");
+    @include pos-top(absolute,5px,30px);
+}
+.main {
+    background-image: url("../image/desktop/shop/main__bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 1366px auto;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.shop {
+    @include width(980px,100%);
+    margin: 0 auto;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+}
+.shop-mobile {
+    display: none;
+}
+.shop::before {
+    content: "";
+    display: block;
+    max-width: 980px;
+    width: 100%;
+    min-height: 156px;
+    background-image: $soft-blue-gradient;
+    border-radius: 0 0 10px 10px;
+    @include pos-bottom(absolute,0,0);
+    z-index: 1;
+}
+.menu-shop {
+    @include width(980px,100%);
+}
+.menu-shop__list {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    @include grid(grid,repeat(auto-fill,minmax(188px,1fr)),1fr);
+    @include grid-gap(10px,0);
+}
+.menu-shop__item {
+    @include width(188px,100%);
+    list-style-type: none;
+    background-color: $night-blue;
+    border-radius: 10px 10px 0 0;
+    min-height: 54px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.menu-shop__item:hover {
+    background-color: transparent;
+}
+.menu-shop__item:hover .menu-shop__link {
+    @extend %text-gradient;
+    opacity: 1;
+}
+
+.menu-shop__link {
+    @include font($LeaksSansBold,normal,700,20px,25px);
+    text-decoration: none;
+    color: $soft;
+    opacity: 0.5;
+}
+.menu-shop__item_active {
+    background: #323145;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+.menu-shop__link_active {
+    opacity: 1;
+    color: $white;
+}
+.menu-shop__item_active::before {
+    @include width(148px,100%);
+    content: "";
+    display: block;
+    height: 3px;
+    background-image: $active-gradient;
+    @include pos-bottom(absolute,0,20px);
+}
+.menu-shop__item_active::after {
+    content: "";
+    display: block;
+    @include width(188px,100%);
+    height: 3px;
+    background-image: $active-gradient;
+    @include pos-bottom(absolute,0,0);
+    opacity: 0.2;
+}
+.content-shop__block {
+    @include grid(grid,repeat(auto-fill,minmax(217px,1fr)),1fr);
+    @include grid-gap(20px,20px);
+    @include width(928px,100%);
+    margin: 0 auto;
+    height: 467px;
+    overflow: hidden;
+}
+.content-shop {
+    background-color: $alt;
+    padding-top: 24px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+
+}
+.content-shop__title {
+    @include font($LeaksSansBold,normal,700,30px,37px);
+    color: $white;
+    text-align: center;
+    margin: 0 0 24px;
+}
+.content-shop__title:hover {
+    @extend %text-gradient;
+    transform: scale(1.3);
+}
+.content-shop-box {
+    box-sizing: border-box;
+    @include width(217px,100%);
+    background-color: $alt;
+    background-image: url("../image/desktop/shop/content-shop-box__bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 217px auto;
+    padding-top: 140px;
+    min-height: 299px;
+    border-radius: 24px 21px 18px 18px;
+    position: relative;
+    overflow: hidden;
+}
+.content-shop-box:hover {
+    border: 5px solid darkmagenta;
+    transform: scale(0.97);
+    will-change: scale;
+}
+.content-shop-box:hover .content-shop-box__title {
+    @extend %text-gradient;
+}
+.content-shop-box:hover .content-shop-box-bonus__text {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(228.57deg, #323264 65.93%, #323264 57.17%, #643E72 87.46%);
+}
+.content-shop-box:hover  .content-shop-box__button {
+    transform: scale(1.2);
+    will-change: scale;
+}
+
+.content-shop-box__title {
+    @include font($RobotoRegular,normal,400,14px,22px);
+    text-align: center;
+    color: $white;
+    margin: 0 auto 15px auto;
+    @include width(105px,100%);
+
+}
+.content-shop-box__span {
+    @include font($RobotoBold,normal,700,30px,40px);
+    text-align: center;
+}
+.content-shop-box__button {
+    @include font($RobotoBold,normal,700,14px,16px);
+    @include width(155px,100%);
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    color: $white;
+    border: none;
+    background-image: url("../image/desktop/shop/content-shop-box__button-bg.svg"),$button-gradient;
+    background-repeat: no-repeat,no-repeat;
+    background-size: 155px auto,155px auto;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 146px;
+    cursor: pointer;
+}
+.content-shop-box__span-button {
+    @include font($RobotoMedium,normal,500,14px,16px);
+    color: $white;
+    position: relative;
+}
+.content-shop-box__span-button::before {
+    content: url("../image/desktop/shop/content-shop-box__money.svg");
+    @include pos-top(absolute,0,-15px);
+}
+.content-shop-box-one::before {
+    content: url("../image/desktop/shop/content-shop-box__one-crystal.svg");
+    @include pos-top(absolute,37px,30px);
+}
+.content-shop-box-small::before {
+    content: url("../image/desktop/shop/content-shop-box__small-crystal.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-middle::before {
+    content: url("../image/desktop/shop/content-shop-box__middle-crystal.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-many::before {
+    content: url("../image/desktop/shop/content-shop-box__many-crystal.svg");
+    @include pos-top(absolute,20px,50px);
+}
+.content-shop-box-bonus {
+    @include width(96px,100%);
+    box-sizing: border-box;
+    min-height: 22px;
+    background-image: $orange-gradient;
+    text-align: center;
+    @include pos-top(absolute,14px,-19px);
+    transform: rotate(-42.41deg);
+    padding-left: 10px;
+}
+.content-shop-box-bonus__text {
+    @include font($RobotoBold,normal,700,13px,20px);
+    margin: 0;
+    text-align: center;
+    color: $white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+.content-shop-box-bonus::before {
+    content: url("../image/desktop/shop/content-shop-box-bonus__image.svg");
+    @include pos-top(absolute,-2px,15px);
+}
+@media all and (max-width: 360px){
+    .statistic {
+        display: none;
+    }
+    .statistic-mobile {
+        @include grid(grid,14% 9% 32% 27% 9% 9%,1fr);
+        align-items: baseline;
+        @include width(345px,100%);
+        margin: 0 auto;
+    }
+    .header {
+        @include width(360px,100%);
+        background-color: $alt;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        background-image: none;
+    }
+    .statistic-mobile__button-back {
+        @include width(50px,100%);
+        box-sizing: border-box;
+        background-color: transparent;
+        position: relative;
+        border: none;
+    }
+    .statistic-mobile__button-back::before {
+        content: url("../image/mobile/statistic/statistic-mobile__button-back.svg");
+        @include pos-top(absolute,-25px,-3px);
+    }
+    .precious-statistic-mobile__block {
+        @include width(102px,100%);
+        box-sizing: border-box;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+    .precious-statistic-mobile__box {
+        @include width(70px,100%);
+        box-sizing: border-box;
+        background-color: $not-black;
+        padding-left: 25px;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        border-radius: 100px 0 0 100px;
+        position: relative;
+    }
+    .coins-statistic-mobile__box::before {
+        content: url("../image/mobile/statistic/coins-statistic-mobile__image.svg");
+        @include pos-top(absolute,-2px,-3px);
+    }
+    .coins-statistic-mobile__block {
+        @include grid-pos(3,4);
+    }
+    .coins-statistic-mobile__text {
+        @include font($LeaksSansBold,normal,700,13px,16px);
+        margin: 0;
+        color: $white;
+    }
+    .coins-statistic-mobile__link {
+        text-decoration: none;
+    }
+    .coins-statistic-mobile__plus {
+        border-radius: 3px;
+    }
+    .crystals-statistic-mobile__block {
+        @include grid-pos(4,5);
+    }
+    .crystals-statistic-mobile__box::before {
+        content: url("../image/mobile/statistic/crystals-statistic-mobile__image.svg");
+        @include pos-top(absolute,-2px,-3px);
+    }
+    .crystals-statistic-mobile__text {
+        @include font($LeaksSansBold,normal,700,13px,16px);
+        color: $white;
+        margin: 0;
+    }
+    .statistic-mobile__button-home {
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        background-color: transparent;
+        position: relative;
+        border: none;
+        @include grid-pos(6,7);
+    }
+    .statistic-mobile__button-home::before {
+        content: url("../image/mobile/statistic/statistic-mobile__button-home-image.svg");
+        @include pos-top(absolute,-13px,-5px);
+    }
+    .shop {
+        display: none;
+    }
+    .shop-mobile {
+        display: block;
+        @include width(360px,100%);
+        margin: 0 auto;
+        min-height: 563px;
+        position: relative;
+    }
+    .shop-mobile::before {
+        content: "";
+        display: block;
+        @include width(280px,100%);
+        min-height: 132px;
+        background-image: $bg-gradient;
+        border-radius: 10px;
+        @include pos-bottom(absolute,12px,40px);
+        z-index: 1;
+    }
+
+    .main {
+        background-image: url("../image/mobile/shop/main__bg.jpg");
+        background-repeat: no-repeat;
+        background-size: 360px auto;
+        padding: 0;
+
+    }
+    .menu-shop-mobile {
+        @include width(360px,100%);
+        margin: 0 auto 11px auto;
+        background-color: $smoke-blue;
+    }
+    .menu-shop-mobile__list {
+        @include width(360px,100%);
+        min-height: 48px;
+        box-sizing: border-box;
+        list-style-type: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 24px;
+        @include grid(grid,20% 9% 14% 24% 12%,1fr);
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+    .menu-shop-mobile__link {
+        @include font($LeaksSansBold,normal,700,14px,14px);
+        text-decoration: none;
+        color: $soft;
+        margin: 0;
+    }
+    .menu-shop-mobile-monster__item {
+        @include width(70px,100%);
+
+    }
+    .menu-shop-mobile__item_active {
+        background: $bg-active-gradient;
+
+    }
+    .menu-shop-mobile__item_active::before {
+        content: "";
+        display: block;
+        @include width(45px,100%);
+        height: 3px;
+        background-image: $active-gradient;
+        @include pos-bottom(absolute,0,12px);
+    }
+    .menu-shop-mobile__item_active::after {
+        content: "";
+        display: block;
+        @include width(67px,100%);
+        height: 3px;
+        background-image: $active-gradient;
+        @include pos-bottom(absolute,0,0);
+        opacity: 0.2;
+    }
+    .content-shop-mobile {
+        @include width(280px,100%);
+        margin: 0 auto;
+        box-sizing: border-box;
+        background-color: $regular;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+
+    }
+    .content-shop-mobile__block {
+        @include width(258px,100%);
+        height: 482px;
+        margin: 0 auto;
+        @include grid(grid,repeat(auto-fill,minmax(124px,1fr)),1fr);
+        @include grid-gap(10px,10px);
+        overflow: hidden;
+        padding-top: 10px;
+    }
+    .content-shop-mobile-box {
+        @include width(124px,100%);
+        min-height: 171px;
+        margin: 0;
+        background-color: $soft-black;
+        background-image: url("../image/mobile/shop/content-shop-mobile-box__bg.jpg");
+        border-radius: 12px;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        padding-top: 70px;
+    }
+    .content-shop-mobile-box::before {
+        content: url("../image/mobile/shop/content-shop-mobile-box__image.svg");
+        @include pos-top(absolute,18px,17px);
+    }
+    .content-shop-mobile-box__title {
+        @include font($RobotoRegular,normal,400,11px,17px);
+        text-align: center;
+        color: $white;
+        margin: 0 0 7px 0;
+
+    }
+    .content-shop-mobile-box__span {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .content-shop-mobile-box__button {
+        @include font($RobotoBold,normal,700,11px,13px);
+        margin: 0 auto;
+        @include width(98px,100%);
+        padding-top: 7px;
+        padding-bottom: 7px;
+        background: $purple-pink-gradient;
+        border-radius: 146px;
+        border: none;
+        text-align: center;
+        color: $white;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+    }
+    .content-shop-mobile-box__span-button::before {
+        content: url("../image/mobile/shop/content-shop-mobile-box__button-image.svg");
+        position: absolute;
+        top: 5px;
+        right: 26px;
+    }
+    .content-shop-mobile-box-bonus {
+        height: 20px;
+        @include width(65px,100%);
+        transform: rotate(-42.41deg);
+        text-align: center;
+        background: $orange-gradient;
+        padding-left: 11px;
+        @include pos-top(absolute,9px,-16px);
+    }
+    .content-shop-mobile-box-bonus::before {
+        content: url("../image/mobile/shop/content-shop-mobile-box-bonus__image.svg");
+        @include pos-top(absolute,0,11px);
+    }
+    .content-shop-mobile-box-bonus__text {
+        @include font($RobotoBold,normal,700,11px,17px);
+        color: $white;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+        margin: 0;
+    }
+
+}
